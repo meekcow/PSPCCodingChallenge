@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> THE BIG CHEESE </title>
+		<link rel="stylesheet" href="cheese.css">
+		<script defer src="cheese.js"></script>
+		<noscript>You need to enable JavaScript to view the full site.</noscript>
+	</head>
+	<body>
+	
+		<input type="file" name="inputfile"
+            id="inputfile"></input>
+		<br>
+		
+		<h1>Canadian Cheese Directory</h1>
+		
+		<div>
+			<ul id="profileHeader" class="header">
+				<li id="cheeseName">Cheese Name: </li>
+				<li id="cheeseId">Cheese ID: </li>
+				<li id="lastUpdateDate" class="smallDate">Last Updated: </li>
+			</ul>
+		</div>
+		
+		<div class="inlineDetails">
+			<ul id="cheeseDetails">
+				<li id="fatContentPercent">Fat Content: </li>
+				<li id="moisturePercent">Moisture Content: </li>
+				<li id="particularities">Particularities: </li>
+				<li id="flavour">Flavour: </li>
+				<li id="characteristics">Characteristics: </li>
+				<li id="ripening">Ripening: </li>
+				<li id="organic">Organic: </li>
+				<li id="categoryType">Category: </li>
+				<li id="milkType">Milk Type: </li>
+				<li id="milkTreatmentType">Milk Treatment Type: </li>
+				<li id="rindType">Rind Type: </li>
+			</ul>
+		</div>
+		
+		<div class="inlineDetails">
+			<ul id="manufacturerDetails">
+				<li id="manufacturerName">Manufacturer Name: </li>
+				<li id="manufacturerProvCode">Manufacturer Province: </li>
+				<li id="manufacturingType">Manufacturing Type: </li>
+				<li id="website">Manufacturer Website: </li>
+			</ul>
+		</div>
+		
+		<div>
+			<button id="prevButton" onclick=prev()>Previous Cheese</button>
+			<button id="nextButton" onclick=next()>Next Cheese</button>
+		</div>
+
+	</body>
+</html> 

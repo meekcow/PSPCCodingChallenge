@@ -1,0 +1,32 @@
+body {
+	font-family: helvetica;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.header li {
+	display: inline-block;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 24px;
+	font-weight: bold;
+	border-style: none;
+}
+
+li.smallDate {
+	font-size: 14px;
+	font-weight: normal;
+}
+
+div.inlineDetails {
+	display: inline-block;
+	vertical-align: top;
+}
+
+li {
+	font-size: 18px;
+	padding: 5px;
+	border-style: groove;
+}
