@@ -17,6 +17,9 @@ var cheeseData;
 var cheeseIndex;
 var cheeseDataSize;
 
+// Variable to determine whether to load french/english text 
+var en_fr = "en";
+
 /*
 * Ran into a lot of issues with trying to fetch the API response (CORs issues)
 * Also ran into a lot of issues trying to read the file locally
@@ -65,6 +68,31 @@ function loadCheeseDataEN(cheeseDataObj) {
 	}
 }
 
+// TODO: Change hardcoded names to FR or move everything to a constants file
+function loadCheeseDataFR(cheeseDataObj) {
+	if (cheeseDataObj) {
+		document.getElementById("cheeseName").innerHTML = "Cheese Name: " + cheeseDataObj.CheeseNameFr;
+		document.getElementById("cheeseId").innerHTML = "Cheese ID: " + cheeseDataObj.CheeseId;
+		document.getElementById("lastUpdateDate").innerHTML = "Last Updated: " + cheeseDataObj.LastUpdateDate;
+		document.getElementById("fatContentPercent").innerHTML = "Fat Content: " + cheeseDataObj.FatContentPercent;
+		document.getElementById("moisturePercent").innerHTML = "Moisture Content: " + cheeseDataObj.MoisturePercent;
+		document.getElementById("particularities").innerHTML = "Particularities: " + cheeseDataObj.ParticularitiesFr;
+		document.getElementById("flavour").innerHTML = "Flavour: " + cheeseDataObj.FlavourFr;
+		document.getElementById("characteristics").innerHTML = "Characteristics: " + cheeseDataObj.CharacteristicsFr;
+		document.getElementById("ripening").innerHTML = "Ripening: " + cheeseDataObj.RipeningFr;
+		document.getElementById("organic").innerHTML = "Organic: " + cheeseDataObj.Organic;
+		document.getElementById("categoryType").innerHTML = "Category: " + cheeseDataObj.CategoryTypeFr;
+		document.getElementById("milkType").innerHTML = "Milk Type: " + cheeseDataObj.MilkTypeFr;
+		document.getElementById("milkTreatmentType").innerHTML = "Milk Treatment Type: " + cheeseDataObj.MilkTreatmentTypeFr;
+		document.getElementById("rindType").innerHTML = "Rind Type: " + cheeseDataObj.RindTypeFr;
+		document.getElementById("manufacturerName").innerHTML = "Manufacturer Name: " + cheeseDataObj.ManufacturerNameFr;
+		document.getElementById("manufacturerProvCode").innerHTML = "Manufacturer Province: " + cheeseDataObj.ManufacturerProvCode;
+		document.getElementById("manufacturingType").innerHTML = "Manufacturing Type: " + cheeseDataObj.ManufacturingTypeFr;
+		document.getElementById("website").innerHTML = "Manufacturer Website: <a href='" + cheeseDataObj.WebSiteFr + "'>" + cheeseDataObj.WebSiteFr + "</a>";
+	}
+}
+
+// prev/next button would cycle through loading cheese data
 function next() {
 	console.log("NEXT CHEESE");
 	if (cheeseIndex + 1 < cheeseDataSize) {
@@ -73,7 +101,11 @@ function next() {
 		cheeseIndex = 0;
 	}
 	console.log(cheeseIndex);
-	loadCheeseDataEN(cheeseData.CheeseDirectory[cheeseIndex]);
+	if (en_fr === "en") {
+		loadCheeseDataEN(cheeseData.CheeseDirectory[cheeseIndex]);
+	}else {
+		loadCheeseDataFR(cheeseData.CheeseDirectory[cheeseIndex]);
+	}
 }
 
 function prev() {
@@ -84,5 +116,22 @@ function prev() {
 		cheeseIndex = cheeseDataSize - 1;
 	}
 	console.log(cheeseIndex);
+	if (en_fr === "en") {
+		loadCheeseDataEN(cheeseData.CheeseDirectory[cheeseIndex]);
+	}else {
+		loadCheeseDataFR(cheeseData.CheeseDirectory[cheeseIndex]);
+	}
+}
+
+// en/fr button will switch current language to load
+function switchEN() {
+	console.log("ENGLISH");
+	en_fr = "en";
 	loadCheeseDataEN(cheeseData.CheeseDirectory[cheeseIndex]);
+}
+
+function switchFR() {
+	console.log("FRANCAIS");
+	en_fr = "fr";
+	loadCheeseDataFR(cheeseData.CheeseDirectory[cheeseIndex]);
 }
